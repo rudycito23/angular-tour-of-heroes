@@ -21,6 +21,6 @@ export class HeroesComponent {
   // property hero of type Hero with initial values
   hero: Hero = {
     id: 1,
-    name: 'Windstorm' // default hero name
+    name: 'Spider-Man' // default hero name
   };
 }
