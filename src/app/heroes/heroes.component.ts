@@ -11,12 +11,13 @@ import { CommonModule, NgFor } from '@angular/common'; // provides common direct
 import { FormsModule } from '@angular/forms'; // provides support for template-driven forms: ngModel
 import { Hero } from '../hero'; // importing the Hero interface from hero.ts
 import { HEROES } from '../mock-heroes';  // importing the HEROES array from mock-heroes.ts
+import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 
 // Component decorator providing metadata for the HeroesComponent
 @Component({
   selector: 'app-heroes', // defines the custom HTML tag: <app-heroes></app-heroes>
   standalone: true, // standalone component and can be used without NgModule
-  imports: [CommonModule, FormsModule, NgFor], // imports necessary for this component
+  imports: [CommonModule, FormsModule, NgFor, HeroDetailComponent], // imports necessary for this component
   templateUrl: './heroes.component.html', // path to HTML template
   styleUrls: ['./heroes.component.css'], // path to CSS styles
 })
