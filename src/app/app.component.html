@@ -1,7 +1,7 @@
 <!-- The {{title}} are Angular's interpolation binding syntax; it displays the 
         component's title property value from app.component.ts inside the HTML 
         h1 tags -->
-<h1>{{title}}</h1>
+<h1>{{ title }}</h1>
 
 <!-- users should be able to click a link to navigate rather than pasting a route URL 
         into the address bar. Adding a <nav> element and within that, an anchor <a>
@@ -12,7 +12,8 @@
         RouterLink directive that turns user clicks into router navigations; it is 
         another public directive in the RouterModule. -->
 <nav>
-<a routerLink="/heroes">Heroes</a>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
 </nav>
 <router-outlet></router-outlet>
 <app-messages></app-messages>

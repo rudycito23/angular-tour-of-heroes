@@ -14,12 +14,13 @@ import { HEROES } from '../mock-heroes'; // importing the HEROES array from mock
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { HeroService } from '../services/hero.service';
 import { MessageService } from '../services/message.service';
+import { RouterModule } from '@angular/router';
 
 // Component decorator providing metadata for the HeroesComponent
 @Component({
   selector: 'app-heroes', // defines the custom HTML tag: <app-heroes></app-heroes>
   standalone: true, // standalone component and can be used without NgModule
-  imports: [CommonModule, FormsModule, NgFor, HeroDetailComponent], // imports necessary for this component
+  imports: [CommonModule, FormsModule, NgFor, HeroDetailComponent, RouterModule], // imports necessary for this component
   templateUrl: './heroes.component.html', // path to HTML template
   styleUrls: ['./heroes.component.css'], // path to CSS styles
 })
@@ -31,7 +32,9 @@ export class HeroesComponent {
   };
 */
 
+/*
   selectedHero?: Hero; // property to hold the currently selected hero; type = Hero
+   this is no longer used after implementing paraterized dashboard route*/
 
   heroes: Hero[] = []; //  array to store heroes fetched from the HeroService
 
@@ -47,10 +50,11 @@ export class HeroesComponent {
   }
 
   //  method to handle the selection of a hero; it sets the selectedHero property to the hero passed as an argument
-  onSelect(hero: Hero): void {
+  /* onSelect(hero: Hero): void {  //  no longer used after implementing parameterized dashboard route
     this.selectedHero = hero; //  set the selectedHero to the chosen hero
     this.messageService.add(`HeroesComponent: Selected hero id = ${hero.id}`); //  log a message about hero selection
   }
+*/
 
   //  method to retrieve heroes from the HeroService
   getHeroes(): void {
