@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common'; // provides common directive and pipes
 import { FormsModule } from '@angular/forms'; // provides support for template-driven forms: ngModel
 import { Hero } from '../hero'; // importing the Hero interface from hero.ts
-import { HEROES } from '../mock-heroes';  // importing the HEROES array from mock-heroes.ts
+import { HEROES } from '../mock-heroes'; // importing the HEROES array from mock-heroes.ts
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { HeroService } from '../services/hero.service';
 import { MessageService } from '../services/message.service';
@@ -31,27 +31,29 @@ export class HeroesComponent {
   };
 */
 
-  //  expose the HEROES array for binding in the component's template
-  //  heroes = HEROES;
+  selectedHero?: Hero; // property to hold the currently selected hero; type = Hero
 
-  selectedHero?: Hero;  // property to hold the currently selected hero; type = Hero
-  
-  heroes: Hero[] = [];
+  heroes: Hero[] = []; //  array to store heroes fetched from the HeroService
 
-  constructor(private heroService: HeroService, private messageService: MessageService) {}
+  //  constructor to inject HeroService and MessageService
+  constructor(
+    private heroService: HeroService,
+    private messageService: MessageService
+  ) {}
 
+  //  OnInit lifecycle hook to perform initialization tasks
   ngOnInit(): void {
-    this.getHeroes();
+    this.getHeroes(); //  call getHeroes() to fetch hero data on component initialization
   }
-  
+
   //  method to handle the selection of a hero; it sets the selectedHero property to the hero passed as an argument
   onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id = ${hero.id}`);
+    this.selectedHero = hero; //  set the selectedHero to the chosen hero
+    this.messageService.add(`HeroesComponent: Selected hero id = ${hero.id}`); //  log a message about hero selection
   }
 
+  //  method to retrieve heroes from the HeroService
   getHeroes(): void {
-    this.heroService.getHeroes()
-    .subscribe(heroes => this.heroes = heroes);
+    this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes)); //  subscribe to the observable and assign fetched heroes to the heroes array
   }
 }
