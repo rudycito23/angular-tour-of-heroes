@@ -20,7 +20,13 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-heroes', // defines the custom HTML tag: <app-heroes></app-heroes>
   standalone: true, // standalone component and can be used without NgModule
-  imports: [CommonModule, FormsModule, NgFor, HeroDetailComponent, RouterModule], // imports necessary for this component
+  imports: [
+    CommonModule,
+    FormsModule,
+    NgFor,
+    HeroDetailComponent,
+    RouterModule,
+  ], // imports necessary for this component
   templateUrl: './heroes.component.html', // path to HTML template
   styleUrls: ['./heroes.component.css'], // path to CSS styles
 })
@@ -32,7 +38,7 @@ export class HeroesComponent {
   };
 */
 
-/*
+  /*
   selectedHero?: Hero; // property to hold the currently selected hero; type = Hero
    this is no longer used after implementing paraterized dashboard route*/
 

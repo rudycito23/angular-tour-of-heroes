@@ -22,7 +22,7 @@ export class HeroDetailComponent {
     //  this component is interested in the route's parameters extracted from the URL;
     //  the "id" parameter is the id of the hero to display
 
-    //  gets hero data from the remote server and this component uses it to get 
+    //  gets hero data from the remote server and this component uses it to get
     //  the hero-to-dispaly
     private heroService: HeroService,
 
@@ -37,8 +37,7 @@ export class HeroDetailComponent {
 
   getHero(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.heroService.getHero(id)
-    .subscribe(hero => this.hero = hero)
+    this.heroService.getHero(id).subscribe((hero) => (this.hero = hero));
   }
 
   goBack(): void {

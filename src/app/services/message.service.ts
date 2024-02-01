@@ -6,11 +6,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root', //  specifies that this service should be provided in the root injector, makes it available throughout the app
 })
 export class MessageService {
-  messages: string[] = [];  //  property to store an array of messages; initialized as an empty array
+  messages: string[] = []; //  property to store an array of messages; initialized as an empty array
 
   //  method to add a message to the messages array; it takes a string as an argument
   add(message: string) {
-    this.messages.push(message);  //  adds the new message to the end of the messages array
+    this.messages.push(message); //  adds the new message to the end of the messages array
   }
 
   //  method to clear all messages from the messages array
