@@ -1,0 +1,21 @@
+<div id="search-component">
+  <label for="search-box">Hero Search</label>
+  <!-- search input box where users can type search terms -->
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <!-- list to display search results -->
+  <ul class="search-result">
+    <!-- *ngFor iterates over heroes$ observable, displaying each hero as a list item 
+            the async pipe subscribes to the 'heroes$' observable and unwraps 
+            its value, which is expected to be an array of hero objects; this pipe 
+            automatically manages subscription and unsubscription, making it 
+            convenient for rendering asynchronous data -->
+    <li *ngFor="let hero of heroes$ | async" >
+        <!-- creates a link to the hero's detail page using their id -->
+      <a routerLink="/detail/{{hero.id}}">
+        <!-- displays the hero's name -->
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>

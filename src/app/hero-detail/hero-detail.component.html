@@ -1,9 +1,14 @@
+<!-- conditional rendering: this section is only displayed if 'hero' exists -->
 <div *ngIf="hero">
+  <!-- displays the hero's name in uppercase followed by "Details" -->
   <h2>{{ hero.name | uppercase }} Details</h2>
+  <!-- displays the hero's ID -->
   <div>id: {{ hero.id }}</div>
   <div>
     <label for="hero-name">Hero name: </label>
+    <!-- input field bound to the hero's name property allowing for two-way data binding -->
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
   </div>
 </div>
 <button type="button" (click)="goBack()">Go back</button>
+<button type="button" (click)="save()">Save</button>

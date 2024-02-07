@@ -1,10 +1,21 @@
 <h2>Top Heroes</h2>
 <div class="heroes-menu">
+  <!-- *ngFor: iterates over the heroes array available
+        from the component's class -->
+
+  <!-- routerLink: dynamically creates a link to the hero's detail page using its id -->
+
+  <!-- routerLinkActive: adds the 'router-link-active' class to the link when it matches 
+        the current route -->
   <a
     *ngFor="let hero of heroes"
-    routerLink="/detail/{{ hero.id }}"
+    routerLink="/detail/{{ hero.id }}" 
     routerLinkActive="router-link-active"
   >
+  <!-- displays the hero's name -->
     {{ hero.name }}
   </a>
 </div>
+
+<!-- selector for the HeroSearchComponent, includes it in the dashboard -->
+<app-hero-search></app-hero-search>
