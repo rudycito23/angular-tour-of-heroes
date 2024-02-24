@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
 import { DropdownQuestion } from '../question-dropdown';
+
+//  import question types
 import { QuestionBase } from '../question-base';
 import { TextboxQuestion } from '../question-textbox';
+
+//  import 'of' to return an observable
 import { of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root', //  provide this service to the app globally
 })
 export class QuestionService {
   //  TODO: get from a remote source of question metadata
-  getQuestions() {
+  getQuestions() {  //  method to get the questions
+
+    //  define an array 'questions', mixing different types
     const questions: QuestionBase<string>[] = [
-      new DropdownQuestion({
+      new DropdownQuestion({  //  dropdown question
         key: 'brave',
         label: 'Bravery Rating',
         options: [
@@ -23,7 +29,7 @@ export class QuestionService {
         order: 3,
       }),
 
-      new TextboxQuestion({
+      new TextboxQuestion({ //  textbox question for first name
         key: 'firstName',
         label: 'First name',
         value: 'Bombasto',
@@ -31,7 +37,7 @@ export class QuestionService {
         order: 1,
       }),
 
-      new TextboxQuestion({
+      new TextboxQuestion({ //  textbox question for email
         key: 'emailAddress',
         label: 'Email',
         type: 'email',
@@ -39,6 +45,7 @@ export class QuestionService {
       }),
     ];
 
+    //  return the 'questions' array as an Observable sorted by 'order'
     return of(questions.sort((a, b) => a.order - b.order));
   }
 }
